@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/screenshots/social-preview.png" alt="OM Desk: OpenMarket on Android, plus price alerts that ring even when the app is closed. Free, open source, no tracking. Unofficial." width="100%"></p>
+
 # OM Desk
 
 **An unofficial Android app for [OpenMarket](https://openmarket.xyz), with price alerts that ring even when the app is closed.**
