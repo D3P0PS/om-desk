@@ -33,7 +33,8 @@ Free, no ads, no tracking, no account. If it is useful to you, [buy me a coffee]
 4. On the first alert, allow notifications. For reliable alerts with the screen off, open
    the bell button → Settings → *Exclude from battery optimization*.
 
-Signing certificate SHA-256: *published with the first release*.
+Signing certificate SHA-256 (every official release is signed with this key):
+`97:43:6C:7A:CF:E8:F7:00:7E:C0:24:71:90:19:82:CC:69:35:0F:49:DF:24:19:62:01:87:9D:69:2E:88:17:BA`
 
 ## Known limits
 
@@ -48,8 +49,10 @@ Signing certificate SHA-256: *published with the first release*.
 OM Desk is free. If you want to say thanks, the links are in the app (bell button → Settings)
 and here:
 
-- Ko-fi: *coming soon*
-- Crypto (USDC / ETH): *coming soon*
+- ☕ Ko-fi: **[ko-fi.com/d3p0ps](https://ko-fi.com/d3p0ps)**
+- USDC / ETH (Ethereum, Base, Arbitrum): `0x5733EA6beE299Fa536627B9597bB566EA36dD8E7`
+
+Always double-check an address after pasting it.
 
 ## Build it yourself
 
@@ -78,8 +81,12 @@ Donation links live in `donate.json`; the build refuses malformed links or addre
 
 ## Languages
 
-English for now. Strings: `web/src/i18n.ts` (add a dictionary with the same keys) and
-`android/app/src/main/res/values/strings.xml` (add `values-xx/`).
+- **OpenMarket itself** follows the language you pick on the site (Menu → Language):
+  English, 中文 (简体), 한국어, 日本語, Русский, हिन्दी, Español, Türkçe.
+- **The OM Desk panel** (alerts, settings) is in English for now. Translations are welcome:
+  add a dictionary with the same keys to `web/src/i18n.ts` (the phone's language picks it,
+  English is the fallback) and `android/app/src/main/res/values-xx/strings.xml` for
+  notifications.
 
 ## License
 

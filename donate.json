@@ -1,6 +1,6 @@
 {
-  "kofi": "",
+  "kofi": "https://ko-fi.com/d3p0ps",
   "crypto": [
-    { "label": "USDC / ETH (Ethereum, Base, Arbitrum)", "address": "" }
+    { "label": "USDC / ETH (Ethereum, Base, Arbitrum)", "address": "0x5733EA6beE299Fa536627B9597bB566EA36dD8E7" }
   ]
 }
