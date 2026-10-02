@@ -6,7 +6,7 @@ import { App } from '@capacitor/app';
 import { applyStatic, t, type Key } from './i18n.js';
 import { loadMarkets, searchMarkets, VENUE_LABEL, type Market, type Venue } from './markets.js';
 import { Alerts, isNative, loadJSON, OmWebView, saveJSON, type Alert, type AlertKind } from './native.js';
-import { $, closeSheet, fmtPrice, h, openSheet, sheetOpen, toast } from './ui.js';
+import { $, closeSheet, fmtPrice, h, keepAboveKeyboard, openSheet, sheetOpen, toast } from './ui.js';
 
 declare const __VERSION__: string;
 declare const __DONATE__: { kofi: string | null; crypto: { label: string; address: string }[] };
@@ -238,6 +238,7 @@ async function firstRunNotice(): Promise<void> {
 
 async function boot(): Promise<void> {
   applyStatic();
+  keepAboveKeyboard();
   for (const b of document.querySelectorAll<HTMLButtonElement>('#panelTabs button')) {
     b.addEventListener('click', () => selectPage(b.dataset.p as 'alerts' | 'settings'));
   }

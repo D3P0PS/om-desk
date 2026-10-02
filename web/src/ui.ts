@@ -68,3 +68,26 @@ export function toast(msg: string, ms = 3500): void {
   clearTimeout(box._t);
   box._t = setTimeout(() => el?.classList.remove('on'), ms);
 }
+
+/**
+ * Keeps bottom sheets above the on-screen keyboard. Normally Android shrinks the page
+ * (adjustResize) and --kb stays 0; if the page is not resized, the keyboard only shrinks
+ * the visual viewport and --kb lifts the sheet by the difference. Focused fields are
+ * scrolled into view either way.
+ */
+export function keepAboveKeyboard(): void {
+  const vv = window.visualViewport;
+  const update = () => {
+    const kb = vv ? Math.max(0, window.innerHeight - vv.height - vv.offsetTop) : 0;
+    document.documentElement.style.setProperty('--kb', `${Math.round(kb)}px`);
+  };
+  vv?.addEventListener('resize', update);
+  vv?.addEventListener('scroll', update);
+  update();
+  document.addEventListener('focusin', (e) => {
+    const el = e.target as HTMLElement;
+    if (!el.matches('input, textarea, select')) return;
+    // After the keyboard animation, so the final layout is known.
+    setTimeout(() => el.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300);
+  });
+}

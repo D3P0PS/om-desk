@@ -50,7 +50,6 @@ public class OmWebViewPlugin extends Plugin {
     private WebView web;
     private ImageButton fab;
     private Insets bars = Insets.NONE;
-    private int imePx = 0;
     private float fabFraction = -1;
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -103,8 +102,10 @@ public class OmWebViewPlugin extends Plugin {
         ViewGroup parent = (ViewGroup) getBridge().getWebView().getParent();
         parent.addView(web, new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         ViewCompat.setOnApplyWindowInsetsListener(web, (v, insets) -> {
+            // The keyboard is already handled by Capacitor's SystemBars (it pads the whole
+            // window by the IME height), so only the system bars matter here; adding the IME
+            // again would count the keyboard twice.
             bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            imePx = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
             layout();
             return insets;
         });
@@ -114,12 +115,12 @@ public class OmWebViewPlugin extends Plugin {
         return web;
     }
 
-    /** Below the status bar, above the navigation bar or the keyboard. */
+    /** Below the status bar, above the navigation bar (the keyboard: see the insets listener). */
     private void layout() {
         if (web == null) return;
         CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) web.getLayoutParams();
         lp.topMargin = bars.top;
-        lp.bottomMargin = Math.max(bars.bottom, imePx);
+        lp.bottomMargin = bars.bottom;
         web.setLayoutParams(lp);
         placeFab();
     }

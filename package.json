@@ -1,6 +1,6 @@
 {
   "name": "omapp",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "type": "module",
   "description": "Unofficial Android app for OpenMarket (openmarket.xyz) with background price alerts.",

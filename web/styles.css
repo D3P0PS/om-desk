@@ -78,7 +78,7 @@ input[type=text], input[type=search], input[type=number], select {
 /* bottom sheet */
 #sheet { position: fixed; inset: 0; z-index: 10; }
 .sheet-backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .6); }
-.sheet-body { position: absolute; left: 0; right: 0; bottom: 0; background: #131519; border-radius: 20px 20px 0 0; padding: 10px 16px calc(16px + env(safe-area-inset-bottom)); max-height: 90dvh; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.sheet-body { position: absolute; left: 0; right: 0; bottom: var(--kb, 0px); background: #131519; border-radius: 20px 20px 0 0; padding: 10px 16px calc(16px + env(safe-area-inset-bottom)); max-height: calc(90dvh - var(--kb, 0px)); overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
 .sheet-body::before { content: ""; align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #3a3d45; margin-bottom: 4px; }
 .sheet-body h2 { margin: 2px 0 2px; font-size: 18px; }
 .sheet-body p { margin: 0; }
