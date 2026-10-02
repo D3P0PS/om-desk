@@ -1,0 +1,100 @@
+/* Visual language borrowed loosely from OpenMarket's mobile UI (dark, rounded cards,
+   soft greys) so the panel does not feel like a different app. No logo, no brand marks. */
+:root {
+  --bg: #0e0f12;
+  --card: #17191d;
+  --card-2: #1e2025;
+  --line: #262930;
+  --text: #ececee;
+  --muted: #8d919a;
+  --accent: #d9774b;
+  --up: #3fb68b;
+  --down: #e5534b;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; margin: 0; background: var(--bg); color: var(--text); }
+body { font: 15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overscroll-behavior: none; }
+button, input, select { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+
+#app { display: flex; flex-direction: column; height: 100dvh; padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom); }
+.grow { flex: 1; }
+.muted { color: var(--muted); }
+
+.bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; min-height: 56px; }
+.bar h1 { font-size: 17px; margin: 0; font-weight: 650; color: var(--muted); }
+.back-btn { display: flex; align-items: center; gap: 4px; border: 0; background: var(--card); border-radius: 999px; padding: 8px 14px 8px 8px; font-weight: 600; }
+.back-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.seg { display: flex; gap: 6px; }
+.seg button { flex: 1; padding: 10px 6px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); font-size: 14px; color: var(--muted); }
+.seg button.on { color: var(--text); border-color: #3a3d45; background: var(--card-2); }
+.tabs { padding: 0 16px 10px; }
+
+#pages { flex: 1; min-height: 0; position: relative; }
+.page { position: absolute; inset: 0; display: flex; flex-direction: column; overflow-y: auto; }
+
+.note { margin: 8px 16px; padding: 12px; border-radius: 12px; background: var(--card); color: var(--muted); font-size: 13px; }
+.status-line { margin: 4px 16px 8px; font-size: 12px; color: var(--muted); }
+.status-line.err { color: var(--down); }
+.hint { color: var(--muted); font-size: 12px; margin: 0; }
+
+.rows { list-style: none; margin: 0 16px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.rows li { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 14px; background: var(--card); user-select: none; }
+.rows li:active { background: var(--card-2); }
+.rows li.done { opacity: .55; }
+.rows .main { flex: 1; min-width: 0; }
+.sym { font-weight: 650; }
+.venue { font-size: 12px; color: var(--muted); }
+.what { font-size: 13px; color: var(--muted); }
+.side { text-align: right; font-size: 12px; font-variant-numeric: tabular-nums; }
+.up { color: var(--up); }
+.empty { justify-content: center; color: var(--muted); font-size: 14px; text-align: center; padding: 28px 14px !important; }
+
+.cta-wrap { padding: 16px; margin-top: auto; }
+.primary { background: var(--accent); border: 0; color: #160b05; border-radius: 12px; padding: 13px; font-weight: 650; }
+.wide { width: 100%; }
+
+.form { padding: 4px 16px 24px; display: flex; flex-direction: column; gap: 12px; }
+.form label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--muted); }
+.form > button { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; font-weight: 600; }
+.form h2.section { font-size: 15px; margin: 14px 0 0; }
+input[type=text], input[type=search], input[type=number], select {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; color: var(--text); width: 100%;
+}
+
+/* market search results */
+.results { display: flex; flex-direction: column; gap: 6px; max-height: 52dvh; overflow-y: auto; }
+.result { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 12px; background: var(--card); border: 0; text-align: left; }
+.result .coin { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; background: var(--card-2); flex: none; }
+.result .main { flex: 1; min-width: 0; }
+.result .px { font-variant-numeric: tabular-nums; font-size: 13px; }
+.picked { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 12px; background: var(--card); }
+.picked .main { flex: 1; }
+.link-btn { border: 0; background: none; color: var(--accent); font-weight: 600; padding: 6px; }
+
+/* bottom sheet */
+#sheet { position: fixed; inset: 0; z-index: 10; }
+.sheet-backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .6); }
+.sheet-body { position: absolute; left: 0; right: 0; bottom: 0; background: #131519; border-radius: 20px 20px 0 0; padding: 10px 16px calc(16px + env(safe-area-inset-bottom)); max-height: 90dvh; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.sheet-body::before { content: ""; align-self: center; width: 40px; height: 4px; border-radius: 2px; background: #3a3d45; margin-bottom: 4px; }
+.sheet-body h2 { margin: 2px 0 2px; font-size: 18px; }
+.sheet-body p { margin: 0; }
+.menu { display: flex; flex-direction: column; gap: 6px; }
+.menu button { text-align: left; background: var(--card); border: 0; border-radius: 12px; padding: 14px; font-weight: 600; }
+.menu button.danger { color: var(--down); }
+.msg { min-height: 16px; font-size: 13px; color: var(--down); }
+
+#toast { position: fixed; left: 16px; right: 16px; bottom: calc(24px + env(safe-area-inset-bottom)); background: #26292f; color: var(--text); padding: 12px 14px; border-radius: 12px; font-size: 14px; opacity: 0; transform: translateY(8px); transition: opacity .2s, transform .2s; pointer-events: none; z-index: 20; }
+#toast.on { opacity: 1; transform: none; }
+
+/* support (buy me a coffee) */
+.support { display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 14px; background: var(--card); margin-top: 6px; }
+.support .section { margin: 0; }
+.support-items { display: flex; flex-direction: column; gap: 8px; }
+.support-items .primary { text-align: center; }
+.addr { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 12px; background: var(--card-2); }
+.addr .main { flex: 1; min-width: 0; }
+.addr code { display: block; font-size: 12px; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

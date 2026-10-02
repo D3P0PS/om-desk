@@ -1,0 +1,7 @@
+{
+  "appId": "io.github.d3p0ps.omdesk",
+  "appName": "OM Desk",
+  "webDir": "www",
+  "android": { "backgroundColor": "#0b0c0e" },
+  "plugins": { "CapacitorHttp": { "enabled": false } }
+}

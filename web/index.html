@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0b0c0e">
+<title>OM Desk</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<!-- In the app, openmarket.xyz covers this page full screen; this page is the panel
+     behind the floating button. Text comes from web/src/i18n.ts via data-i18n*. -->
+<div id="app">
+  <header class="bar">
+    <button id="closePanel" class="back-btn" data-i18n-aria="panel.back" aria-label="Back to OpenMarket">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+      <span data-i18n="panel.back">OpenMarket</span>
+    </button>
+    <span class="grow"></span>
+    <h1>OM Desk</h1>
+  </header>
+
+  <nav class="seg tabs" id="panelTabs">
+    <button data-p="alerts" class="on" data-i18n="alerts.title">Alerts</button>
+    <button data-p="settings" data-i18n="more.title">Settings</button>
+  </nav>
+
+  <main id="pages">
+    <section id="p-alerts" class="page">
+      <p id="browserNote" class="note" hidden></p>
+      <p id="alertStatus" class="status-line"></p>
+      <ul id="alertList" class="rows"></ul>
+      <div class="cta-wrap"><button id="newAlertBtn" class="primary wide" data-i18n="alerts.new">New alert</button></div>
+    </section>
+
+    <section id="p-settings" class="page" hidden>
+      <div class="form">
+        <label><span data-i18n="more.every">Check alerts every</span>
+          <select id="alertEvery">
+            <option value="30">30 s</option>
+            <option value="60" selected>60 s</option>
+            <option value="120">2 min</option>
+            <option value="300">5 min</option>
+          </select>
+        </label>
+        <button id="batteryBtn" data-i18n="more.battery">Exclude from battery optimization</button>
+        <p class="hint" data-i18n="more.batteryHint"></p>
+
+        <button id="omReload" data-i18n="more.reload">Reload OpenMarket</button>
+        <p class="hint" data-i18n="more.loginHint"></p>
+        <p class="hint" data-i18n="more.fabHint"></p>
+
+        <div id="support" class="support" hidden>
+          <h2 class="section" data-i18n="support.title">Support OM Desk</h2>
+          <p class="hint" data-i18n="support.text"></p>
+          <div id="supportItems" class="support-items"></div>
+        </div>
+
+        <h2 class="section" data-i18n="about.title">About</h2>
+        <p class="hint" data-i18n="about.disclaimer"></p>
+        <p class="hint" data-i18n="about.data"></p>
+        <p class="hint muted" id="version"></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="sheet" hidden>
+  <div class="sheet-backdrop"></div>
+  <div class="sheet-body" role="dialog" aria-modal="true"></div>
+</div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

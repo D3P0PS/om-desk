@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">OM Desk</string>
+    <string name="title_activity_main">OM Desk</string>
+    <string name="package_name">io.github.d3p0ps.omdesk</string>
+    <string name="custom_url_scheme">io.github.d3p0ps.omdesk</string>
+    <!-- Alert monitor (AlertService). Other languages: res/values-xx/strings.xml -->
+    <string name="ch_monitor_name">Alert monitoring</string>
+    <string name="ch_monitor_desc">Persistent notification while alerts are armed</string>
+    <string name="ch_alerts_name">Price alerts</string>
+    <string name="ch_alerts_desc">When an alert fires</string>
+    <string name="monitor_title">Alerts armed</string>
+    <string name="monitor_starting">starting…</string>
+    <string name="monitor_status">%1$d armed · checked %2$s</string>
+    <string name="monitor_status_error">%1$d armed · checked %2$s · error</string>
+    <string name="no_price">%1$s: no price</string>
+    <string name="alert_above">%1$s above %2$s (now %3$s)</string>
+    <string name="alert_below">%1$s below %2$s (now %3$s)</string>
+    <string name="alert_cross">%1$s crossed %2$s (now %3$s)</string>
+    <string name="alert_pct">%1$s %2$s from %3$s (now %4$s)</string>
+    <!-- OpenMarket WebView -->
+    <string name="fab_desc">OM Desk: alerts and settings</string>
+    <string name="google_blocked">Google does not allow sign-in inside apps: use email or password</string>
+    <string name="no_app_for">No app can open %1$s</string>
+</resources>
