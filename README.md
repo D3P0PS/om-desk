@@ -8,6 +8,14 @@ website cannot do on a phone, background price alerts.
 
 Free, no ads, no tracking, no account. If it is useful to you, [buy me a coffee](#support).
 
+<p align="center">
+  <img src="docs/screenshots/1-openmarket.png" width="200" alt="OpenMarket full screen, with the bell button on the right edge">
+  <img src="docs/screenshots/2-search.png" width="200" alt="New alert: type a ticker, pick the source">
+  <img src="docs/screenshots/3-alert.png" width="200" alt="Alert condition: above, below, crosses or move by percent">
+  <img src="docs/screenshots/4-support.png" width="200" alt="Settings with support links and the non-affiliation notice">
+</p>
+<p align="center"><sub>OpenMarket full screen with the 🔔 button · type a ticker, pick the source · set the condition · settings</sub></p>
+
 > OM Desk is an independent project. It is **not affiliated with, endorsed by or sponsored by
 > OpenMarket**. It shows their public website; your OpenMarket account, plan and payments stay
 > with OpenMarket. OpenMarket and its logo belong to their owners.
